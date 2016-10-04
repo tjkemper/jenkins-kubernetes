@@ -1,0 +1,34 @@
+  apiVersion: extensions/v1beta1
+  kind: Deployment
+  metadata: 
+    name: "jenkins"
+    labels: 
+      name: "jenkins"
+  spec: 
+    replicas: 1
+    template: 
+      metadata: 
+        name: "jenkins"
+        labels: 
+          name: "jenkins"
+      spec: 
+        containers: 
+          - name: "jenkins"
+            image: "tjkemper/jenkins:0.1"
+            ports: 
+              - containerPort: 8080
+              - containerPort: 50000
+            volumeMounts: 
+              - name: "jenkins-data"
+                mountPath: "/var/jenkins_home"
+            #livenessProbe:
+            #  httpGet:
+            #    path: /
+            #    port: 8080
+            #  initialDelaySeconds: 60
+            #  timeoutSeconds: 5
+        volumes: 
+          - name: "jenkins-data"
+            awsElasticBlockStore:
+              volumeID: <volume id>
+              fsType: ext4
