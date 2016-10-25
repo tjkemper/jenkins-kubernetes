@@ -14,13 +14,15 @@
       spec: 
         containers: 
           - name: "jenkins"
-            image: "tjkemper/jenkins:0.1"
+            image: "tjkemper/jenkins:0.4"
             ports: 
               - containerPort: 8080
               - containerPort: 50000
             volumeMounts: 
               - name: "jenkins-data"
                 mountPath: "/var/jenkins_home"
+              - name: "docker-socket"
+                mountPath: "/var/run/docker.sock"
             #livenessProbe:
             #  httpGet:
             #    path: /
@@ -30,5 +32,8 @@
         volumes: 
           - name: "jenkins-data"
             awsElasticBlockStore:
-              volumeID: <volume id>
+              volumeID: vol-955b1940
               fsType: ext4
+          - name: "docker-socket"
+            hostPath:
+              path: "/var/run/docker.sock"
