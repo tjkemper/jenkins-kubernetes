@@ -1,11 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: jenkins-http-svc
+  name: jenkins-svc
 spec:
   ports:
-    - port: 80
+    - name: "http"
+      port: 80
       targetPort: 8080
+    - name: "slave"
+      port: 50000
+      targetPort: 50000
   selector:
     name: jenkins
   type: LoadBalancer
