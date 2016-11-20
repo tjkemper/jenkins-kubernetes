@@ -3,18 +3,18 @@
   metadata: 
     name: "jenkins"
     labels: 
-      name: "jenkins"
+      app: "jenkins"
   spec: 
     replicas: 1
     template: 
       metadata: 
         name: "jenkins"
         labels: 
-          name: "jenkins"
+          app: "jenkins"
       spec: 
         containers: 
           - name: "jenkins"
-            image: "tjkemper/jenkins:0.4"
+            image: "tjkemper/jenkins:0.5"
             ports: 
               - containerPort: 8080
               - containerPort: 50000
