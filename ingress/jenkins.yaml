@@ -10,7 +10,7 @@ spec:
   tls:
   - hosts:
     - jenkins.operations.taylorkemper.com
-    secretName: operations-tls
+    secretName: jenkins-tls
   rules:
   - host: jenkins.operations.taylorkemper.com
     http:
