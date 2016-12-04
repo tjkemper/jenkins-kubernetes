@@ -23,6 +23,9 @@
                 mountPath: "/var/jenkins_home"
               - name: "docker-socket"
                 mountPath: "/var/run/docker.sock"
+              - name: "kubeconfig"
+                mountPath: "/var/jenkins_home/.kube/"
+                readOnly: true
             #livenessProbe:
             #  httpGet:
             #    path: /
@@ -37,3 +40,6 @@
           - name: "docker-socket"
             hostPath:
               path: "/var/run/docker.sock"
+          - name: "kubeconfig"
+            secret:
+              secretName: "kubeconfig"
