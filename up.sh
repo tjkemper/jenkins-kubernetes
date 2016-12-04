@@ -14,6 +14,9 @@ kubectl apply -f ingress/nginx/default-deployment.yaml
 kubectl apply -f ingress/nginx/service.yaml
 kubectl apply -f ingress/nginx/deployment.yaml
 
+# secret
+kubectl create secret generic kubeconfig --from-file=./kubeconfig --namespace $NAMESPACE
+
 # service
 kubectl apply -f services/$APP.yaml --namespace $NAMESPACE
 
