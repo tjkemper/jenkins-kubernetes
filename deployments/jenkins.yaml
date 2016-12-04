@@ -35,7 +35,7 @@
         volumes: 
           - name: "jenkins-data"
             awsElasticBlockStore:
-              volumeID: vol-955b1940
+              volumeID: vol-0de186410157d1dfe
               fsType: ext4
           - name: "docker-socket"
             hostPath:
