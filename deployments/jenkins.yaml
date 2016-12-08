@@ -14,7 +14,7 @@
       spec: 
         containers: 
           - name: "jenkins"
-            image: "tjkemper/jenkins:0.5"
+            image: "tjkemper/jenkins:0.6"
             ports: 
               - containerPort: 8080
               - containerPort: 50000

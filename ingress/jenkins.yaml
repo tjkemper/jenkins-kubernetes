@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - jenkins.operations.taylorkemper.com
+    - jenkins.revatureops.com
     secretName: jenkins-tls
   rules:
-  - host: jenkins.operations.taylorkemper.com
+  - host: jenkins.revatureops.com
     http:
       paths:
       - path: /
